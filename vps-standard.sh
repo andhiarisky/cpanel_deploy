@@ -21,14 +21,7 @@ csf -r
 #copy-tweak-setting
 mv /usr/local/src/cpanel.config /var/cpanel/cpanel.config
 whmapi1 restore_config_from_file module=Main path=/var/cpanel/cpanel.config
-
-#ubah-handler-lsapi
-/usr/local/cpanel/bin/rebuild_phpconf --ea-php73=lsapi
-/usr/local/cpanel/bin/rebuild_phpconf --ea-php74=lsapi
-/usr/local/cpanel/bin/rebuild_phpconf --ea-php80=lsapi
-/usr/local/cpanel/bin/rebuild_phpconf --ea-php81=lsapi
-/usr/local/cpanel/bin/rebuild_phpconf --ea-php82=lsapi
-/usr/local/cpanel/bin/rebuild_phpconf --ea-php83=lsapi
+/scripts/restartsrv_cpsrvd
 
 #update php.ini
 mv /usr/local/src/ea-php73.ini /opt/cpanel/ea-php73/root/etc/php.ini
@@ -37,3 +30,11 @@ mv /usr/local/src/ea-php80.ini /opt/cpanel/ea-php80/root/etc/php.ini
 mv /usr/local/src/ea-php81.ini /opt/cpanel/ea-php81/root/etc/php.ini
 mv /usr/local/src/ea-php82.ini /opt/cpanel/ea-php82/root/etc/php.ini
 mv /usr/local/src/ea-php83.ini /opt/cpanel/ea-php83/root/etc/php.ini
+
+#ubah-handler-lsapi
+/usr/local/cpanel/bin/rebuild_phpconf --ea-php73=lsapi
+/usr/local/cpanel/bin/rebuild_phpconf --ea-php74=lsapi
+/usr/local/cpanel/bin/rebuild_phpconf --ea-php80=lsapi
+/usr/local/cpanel/bin/rebuild_phpconf --ea-php81=lsapi
+/usr/local/cpanel/bin/rebuild_phpconf --ea-php82=lsapi
+/usr/local/cpanel/bin/rebuild_phpconf --ea-php83=lsapi
