@@ -1,11 +1,11 @@
 #!/bin/bash
 #download-git-cpanel-deploy
-wget https://github.com/andhiarisky/cpanel_deploy/archive/refs/heads/main.zip -O /usr/local/src/cpanel_deploy.zip
+wget https://github.com/andhiarisky/cpdeploy/archive/refs/heads/main.zip -O /usr/local/src/cpanel_deploy.zip
 cd /usr/local/src/ && unzip cpanel_deploy.zip
 
 #recompile-easyapache4
 mkdir -p /etc/cpanel/ea4/profiles/custom/
-mv /usr/local/src/ea-php72-php83.json /etc/cpanel/ea4/profiles/custom/ea-php72-php83.json
+mv /usr/local/src/cpdeploy-main/ea-php72-php83.json /etc/cpanel/ea4/profiles/custom/ea-php72-php83.json
 /usr/local/bin/ea_install_profile --install /etc/cpanel/ea4/profiles/custom/ea-php72-php83.json
 
 #install-modsec360
@@ -15,21 +15,21 @@ mv /usr/local/src/ea-php72-php83.json /etc/cpanel/ea4/profiles/custom/ea-php72-p
 cd /usr/local/src/;wget https://download.configserver.com/csf.tgz;tar -zxvf csf.tgz;cd csf;./install.cpanel.sh;cd /usr/local/src/;wget https://download.configserver.com/cmq.tgz;tar -zxvf cmq.tgz;cd  cmq;./install.sh;cd /usr/local/src/;wget https://download.configserver.com/cmc.tgz;tar -zxvf cmc.tgz;cd  cmc;./install.sh
 
 #copy-csf-conf
-mv /usr/local/src/csf.conf /etc/csf/csf.conf
+mv /usr/local/src/cpdeploy-main/csf.conf /etc/csf/csf.conf
 csf -r
 
 #copy-tweak-setting
-mv /usr/local/src/cpanel.config /var/cpanel/cpanel.config
+mv /usr/local/src/cpdeploy-main/cpanel.config /var/cpanel/cpanel.config
 whmapi1 restore_config_from_file module=Main path=/var/cpanel/cpanel.config
 /scripts/restartsrv_cpsrvd
 
 #update php.ini
-mv /usr/local/src/ea-php73.ini /opt/cpanel/ea-php73/root/etc/php.ini
-mv /usr/local/src/ea-php74.ini /opt/cpanel/ea-php74/root/etc/php.ini
-mv /usr/local/src/ea-php80.ini /opt/cpanel/ea-php80/root/etc/php.ini
-mv /usr/local/src/ea-php81.ini /opt/cpanel/ea-php81/root/etc/php.ini
-mv /usr/local/src/ea-php82.ini /opt/cpanel/ea-php82/root/etc/php.ini
-mv /usr/local/src/ea-php83.ini /opt/cpanel/ea-php83/root/etc/php.ini
+mv /usr/local/src/cpdeploy-main/ea-php73.ini /opt/cpanel/ea-php73/root/etc/php.ini
+mv /usr/local/src/cpdeploy-main/ea-php74.ini /opt/cpanel/ea-php74/root/etc/php.ini
+mv /usr/local/src/cpdeploy-main/ea-php80.ini /opt/cpanel/ea-php80/root/etc/php.ini
+mv /usr/local/src/cpdeploy-main/ea-php81.ini /opt/cpanel/ea-php81/root/etc/php.ini
+mv /usr/local/src/cpdeploy-main/ea-php82.ini /opt/cpanel/ea-php82/root/etc/php.ini
+mv /usr/local/src/cpdeploy-main/ea-php83.ini /opt/cpanel/ea-php83/root/etc/php.ini
 
 #ubah-handler-lsapi
 /usr/local/cpanel/bin/rebuild_phpconf --ea-php73=lsapi
