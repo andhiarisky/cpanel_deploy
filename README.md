@@ -1,4 +1,4 @@
-script cpdeploy ini digunakan untuk OS Almalinux 8.9 yang masih support ea-php73 keatas.
+script cpdeploy ini digunakan untuk OS Almalinux 8.9 yang masih support ea-php72 keatas.
 script ini dijalankan setelah proses instalasi cPanelnya selesai dilakukan.
 
 Untuk instalasi cPanel pastikan sudah melakukan yum update sebelumnya, dan tambahkan file /root/cpanel_profile/cpanel.config dengan isi "mysql-version=10.6" (tanpa tanda petik)
