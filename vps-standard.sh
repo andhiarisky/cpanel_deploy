@@ -1,8 +1,4 @@
 #!/bin/bash
-#download-git-cpanel-deploy
-wget https://github.com/andhiarisky/cpdeploy/archive/refs/heads/main.zip -O /usr/local/src/cpanel_deploy.zip
-cd /usr/local/src/ && unzip cpanel_deploy.zip
-
 #recompile-easyapache4
 mkdir -p /etc/cpanel/ea4/profiles/custom/
 mv /usr/local/src/cpdeploy-main/ea-php72-php83.json /etc/cpanel/ea4/profiles/custom/ea-php72-php83.json
