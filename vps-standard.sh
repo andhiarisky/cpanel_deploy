@@ -20,6 +20,7 @@ whmapi1 restore_config_from_file module=Main path=/var/cpanel/cpanel.config
 /scripts/restartsrv_cpsrvd
 
 #update php.ini
+mv /usr/local/src/cpdeploy-main/ea-php72.ini /opt/cpanel/ea-php72/root/etc/php.ini
 mv /usr/local/src/cpdeploy-main/ea-php73.ini /opt/cpanel/ea-php73/root/etc/php.ini
 mv /usr/local/src/cpdeploy-main/ea-php74.ini /opt/cpanel/ea-php74/root/etc/php.ini
 mv /usr/local/src/cpdeploy-main/ea-php80.ini /opt/cpanel/ea-php80/root/etc/php.ini
@@ -28,6 +29,7 @@ mv /usr/local/src/cpdeploy-main/ea-php82.ini /opt/cpanel/ea-php82/root/etc/php.i
 mv /usr/local/src/cpdeploy-main/ea-php83.ini /opt/cpanel/ea-php83/root/etc/php.ini
 
 #ubah-handler-lsapi
+/usr/local/cpanel/bin/rebuild_phpconf --ea-php72=lsapi
 /usr/local/cpanel/bin/rebuild_phpconf --ea-php73=lsapi
 /usr/local/cpanel/bin/rebuild_phpconf --ea-php74=lsapi
 /usr/local/cpanel/bin/rebuild_phpconf --ea-php80=lsapi
